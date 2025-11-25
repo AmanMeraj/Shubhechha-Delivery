@@ -40,4 +40,57 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+    // Flexbox Layout
+    implementation libs.flexbox
+
+// Jsoup HTML Parser
+    implementation libs.jsoup
+
+// OkHttp Logging Interceptor
+    implementation libs.logging.interceptor
+
+// Jackson JSON Annotations
+    implementation libs.jackson.annotations
+
+// Jackson Databind
+    implementation libs.jackson.databind
+
+// Navigation Component
+    implementation libs.navigation.fragment.ktx
+    implementation libs.navigation.ui.ktx
+
+// CircleImageView
+    implementation libs.circleimageview
+
+// Circle Indicator for ViewPager2
+    implementation libs.circleindicator
+
+// Retrofit
+    implementation libs.retrofit
+
+// Retrofit Gson Converter
+    implementation libs.converter.gson
+
+// Gson
+    implementation libs.gson
+
+// Glide
+    implementation libs.glide
+    annotationProcessor libs.compiler
+
+// SwipeRefreshLayout
+    implementation libs.swiperefreshlayout
+
+// OTP View
+    implementation libs.otpview
+
+// Google Play Services - Location
+    implementation libs.play.services.location
+
+// SDP – Scalable DP
+    implementation libs.sdp.android
+
+// SSP – Scalable SP
+    implementation libs.ssp.android
+
 }

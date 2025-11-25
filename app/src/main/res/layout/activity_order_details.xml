@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <include
+            layout="@layout/activity_toolbar" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <!-- Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Details"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Customer Details Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Customer Details Header (Above dotted line) -->
+                <TextView
+                    android:background="@color/white"
+                    android:layout_marginHorizontal="10dp"
+                    android:paddingHorizontal="10dp"
+                    android:elevation="1dp"
+                    android:layout_marginBottom="-10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Customer Details"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    />
+
+                <!-- Customer Info with Dotted Background -->
+                <LinearLayout
+                    android:background="@drawable/dotted_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:paddingTop="8dp">
+
+                    <!-- Customer Info Row -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <!-- Profile Image -->
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/customerProfileImage"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/dummy_profile"
+                            android:scaleType="centerCrop" />
+
+                        <!-- Customer Name and Phone -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/customerProfileImage"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="16dp"
+                            android:layout_toStartOf="@id/customerCallButton"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/customerName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Nilima Sharma"
+                                android:textSize="14sp"
+                                android:textColor="#000000"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/customerPhone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="+91 2569 5469 50"
+                                android:textSize="12sp"
+                                android:textColor="#666666"
+                                android:layout_marginTop="4dp" />
+                        </LinearLayout>
+
+                        <!-- Call Button -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/customerCallButton"
+                            android:layout_width="40dp"
+                            android:backgroundTint="@color/orange"
+                            app:cardCornerRadius="30dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            app:fabCustomSize="48dp"
+                            app:fabSize="normal"
+                            app:tint="#FFFFFF"
+                            app:backgroundTint="#FF6B35" >
+                            <ImageView
+                                android:src="@drawable/shub_phone"
+                                android:padding="13dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+                        </com.google.android.material.card.MaterialCardView>
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Shop Details Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#CCCCCC"
+            app:strokeWidth="1dp"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Shop Details Header (Above dotted line) -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shop Details"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:elevation="1dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@color/white"
+                    android:layout_marginBottom="-10dp"
+                    />
+
+                <!-- Shop Info with Dotted Background -->
+                <LinearLayout
+                    android:background="@drawable/dotted_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:paddingTop="8dp">
+
+                    <!-- Shop Info Row -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <!-- Shop Image -->
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/shopProfileImage"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/subh_img2"
+                            android:scaleType="centerCrop" />
+
+                        <!-- Shop Name and Phone -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/shopProfileImage"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="16dp"
+                            android:layout_toStartOf="@id/shopCallButton"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/shopName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Shop Name"
+                                android:textSize="14sp"
+                                android:textColor="#000000"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/shopPhone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="+91 2569 5469 50"
+                                android:textSize="12sp"
+                                android:textColor="#666666"
+                                android:layout_marginTop="4dp" />
+                        </LinearLayout>
+
+                        <!-- Call Button -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/shopCallButton"
+                            android:layout_width="40dp"
+                            android:backgroundTint="@color/orange"
+                            android:layout_height="40dp"
+                            app:cardCornerRadius="30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            app:fabSize="normal" >
+                            <ImageView
+                                android:src="@drawable/shub_phone"
+                                android:padding="13dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+                        </com.google.android.material.card.MaterialCardView>
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Delivery Address Section -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp">
+
+            <!-- Location Icon -->
+            <ImageView
+                android:id="@+id/locationIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/subh_location" />
+
+            <!-- Address Content -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/locationIcon"
+                android:layout_marginStart="12dp"
+                android:layout_toStartOf="@id/viewMapButton"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delivery Address"
+                    android:textSize="14sp"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/deliveryAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mondol gathi road, biswas para, koikhali, west bengal, 700052."
+                    android:textSize="12sp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!-- View on Map Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/viewMapButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="View on Map"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:textAllCaps="false"
+                android:background="@drawable/button_rounded_orange"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp" />
+        </RelativeLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Order ID -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order Id : "
+                android:textSize="14sp"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/orderId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#245698569"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_marginVertical="10dp"
+            android:id="@+id/rc_items"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_height="wrap_content"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"
+            android:layout_marginBottom="8dp" />
+        <RelativeLayout
+            android:id="@+id/total_rel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_total"
+                android:layout_width="wrap_content"
+                android:text="Total"
+                android:fontFamily="@font/inter_bold"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_alignParentEnd="true"
+                android:id="@+id/tv_total_amount"
+                android:layout_width="wrap_content"
+                android:text="5000"
+                android:fontFamily="@font/inter_bold"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <!-- Payment Method Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#FFE5D9">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Payment Method Header -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Payment Method"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- Cash on Delivery -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cash on Delivery"
+                        android:textSize="14sp"
+                        android:textColor="#000000"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- Balance Transfer to Wallet -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Balance Transfer to Wallet"
+                        android:textSize="14sp"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- Amount Input and Send Button -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <EditText
+                            android:id="@+id/amountInput"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:hint="Enter Amount"
+                            android:textSize="14sp"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:background="@drawable/input_bg_white"
+                            android:inputType="numberDecimal"
+                            android:layout_marginEnd="12dp" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/sendButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:text="Send"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            android:textAllCaps="false"
+                            android:background="@drawable/button_rounded_orange"
+                            android:paddingStart="32dp"
+                            android:paddingEnd="32dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Enter Delivery Code Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#E8E8E8">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Enter Delivery Code Header -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Enter Delivery Code"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Code Input -->
+                    <EditText
+                        android:id="@+id/codeInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:hint="Enter Code"
+                        android:textSize="14sp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:background="@drawable/input_bg_white"
+                        android:inputType="text"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Order Delivered Button -->
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/orderDeliveredButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:text="Order Delevered"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:textAllCaps="false"
+                        android:textStyle="bold"
+                        android:background="@drawable/button_bg" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</ScrollView>
