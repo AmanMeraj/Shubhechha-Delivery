@@ -1,6 +1,5 @@
 package com.subh.shubhechhadelivery.Adapter;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
+import com.bumptech.glide.Glide;
 import com.subh.shubhechhadelivery.Model.WorkPlace;
 import com.subh.shubhechhadelivery.R;
 
@@ -50,9 +49,18 @@ public class WorkPlaceAdapter extends RecyclerView.Adapter<WorkPlaceAdapter.Work
         WorkPlace workPlace = workPlaceList.get(position);
         holder.tvStoreName.setText(workPlace.getStoreName());
 
-        // Set image from drawable (you can use Glide/Picasso for URLs)
-        // For now using default image from drawable
-        holder.ivStoreImage.setImageResource(R.drawable.subh_img2);
+        // Load image with Glide if URL is available, otherwise use default
+        String imageUrl = workPlace.getStoreImage();
+        if (imageUrl != null && !imageUrl.isEmpty()) {
+            Glide.with(context)
+                    .load(imageUrl)
+                    .placeholder(R.drawable.subh_img2)
+                    .error(R.drawable.subh_img2)
+                    .centerCrop()
+                    .into(holder.ivStoreImage);
+        } else {
+            holder.ivStoreImage.setImageResource(R.drawable.subh_img2);
+        }
 
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {
@@ -65,7 +73,7 @@ public class WorkPlaceAdapter extends RecyclerView.Adapter<WorkPlaceAdapter.Work
 
     @Override
     public int getItemCount() {
-        return workPlaceList.size();
+        return workPlaceList != null ? workPlaceList.size() : 0;
     }
 
     public void updateList(List<WorkPlace> newList) {
