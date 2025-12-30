@@ -1,5 +1,7 @@
 package com.subh.shubhechhadelivery.Fragments;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,10 +14,12 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.subh.shubhechhadelivery.Activities.OrderDetailsActivity;
 import com.subh.shubhechhadelivery.Adapter.OrdersAdapter;
 import com.subh.shubhechhadelivery.Adapter.WorkPlaceAdapter;
 import com.subh.shubhechhadelivery.Model.HomeResponse;
+import com.subh.shubhechhadelivery.Model.UpdateFcm;
 import com.subh.shubhechhadelivery.Model.UpdateStatusModel;
 import com.subh.shubhechhadelivery.Model.WorkPlace;
 import com.subh.shubhechhadelivery.Repository.Repository;
@@ -65,6 +69,45 @@ public class HomeFragment extends Fragment {
         // Get auth token from SharedPreferences
         String token = sharedPref.getPrefString(requireContext(), sharedPref.user_token);
         authToken = token != null ? "Bearer " + token : null;
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                        return;
+                    }
+
+                    // Get new FCM registration token
+                    String fcmToken = task.getResult();
+                    Log.d(TAG, "FCM Token: " + fcmToken);
+
+                    // Only update FCM if we have a valid auth token
+                    if (authToken != null && !authToken.isEmpty()) {
+                        updateFCM(fcmToken);
+                    } else {
+                        Log.e(TAG, "Auth token is null or empty, cannot update FCM");
+                    }
+                });
+    }
+
+    private void updateFCM(String fcm) {
+        UpdateFcm updateFcm = new UpdateFcm();
+        updateFcm.setFcm_token(fcm);
+
+        String auth = authToken;
+        Log.d(TAG, "Updating FCM with auth: " + auth);
+
+        // Use getViewLifecycleOwner() instead of requireActivity()
+        viewModel.addFcm(auth, updateFcm).observe(getViewLifecycleOwner(), response -> {
+            if (response != null) {
+                if (response.isSuccess) {
+                    Log.d(TAG, "FCM token updated successfully");
+                } else {
+                    Log.e(TAG, "FCM update failed: " + response.message);
+                }
+            } else {
+                Log.e(TAG, "FCM update response is null");
+            }
+        });
     }
 
     private void setupRecyclerViews() {

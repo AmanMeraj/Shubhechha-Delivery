@@ -6,9 +6,11 @@ import com.subh.shubhechhadelivery.Model.HomeResponse;
 import com.subh.shubhechhadelivery.Model.LoginRequest;
 import com.subh.shubhechhadelivery.Model.LoginResponse;
 import com.subh.shubhechhadelivery.Model.MyOrdersResponse;
+import com.subh.shubhechhadelivery.Model.NotificationResponse;
 import com.subh.shubhechhadelivery.Model.OrderDetails;
 import com.subh.shubhechhadelivery.Model.ProfileResponse;
 import com.subh.shubhechhadelivery.Model.RefundAmount;
+import com.subh.shubhechhadelivery.Model.UpdateFcm;
 import com.subh.shubhechhadelivery.Model.UpdateStatusModel;
 
 import java.util.List;
@@ -45,6 +47,17 @@ public interface ApiRequest {
     Call<GenericPostResponse> updateStatus(
             @Header("Authorization") String authorization,
             @Body UpdateStatusModel updateStatusModel
+    );
+    @Headers({"Accept: application/json"})
+    @POST("fcm-version-update")
+    Call<GenericPostResponse> addFcm(
+            @Header("Authorization") String authorization,
+            @Body UpdateFcm updateFcm
+    );
+    @Headers({"Accept: application/json"})
+    @GET("notifications")
+    Call<NotificationResponse> getNotification(
+            @Header("Authorization") String authorization
     );
 
     @Headers({"Accept: application/json"})

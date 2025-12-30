@@ -13,9 +13,11 @@ import com.subh.shubhechhadelivery.Model.HomeResponse;
 import com.subh.shubhechhadelivery.Model.LoginRequest;
 import com.subh.shubhechhadelivery.Model.LoginResponse;
 import com.subh.shubhechhadelivery.Model.MyOrdersResponse;
+import com.subh.shubhechhadelivery.Model.NotificationResponse;
 import com.subh.shubhechhadelivery.Model.OrderDetails;
 import com.subh.shubhechhadelivery.Model.ProfileResponse;
 import com.subh.shubhechhadelivery.Model.RefundAmount;
+import com.subh.shubhechhadelivery.Model.UpdateFcm;
 import com.subh.shubhechhadelivery.Model.UpdateStatusModel;
 import com.subh.shubhechhadelivery.Retrofit.ApiRequest;
 import com.subh.shubhechhadelivery.Retrofit.RetrofitRequest;
@@ -114,6 +116,14 @@ public class Repository {
     }
     public LiveData<ApiResponse<OrderDetails>> orderDetails(String auth, int id) {
         Call<OrderDetails> call = apiRequest.orderDetails(auth,id);
+        return performRequest(call);
+    }
+    public LiveData<ApiResponse<GenericPostResponse>> addFcm(String auth, UpdateFcm updateFcm) {
+        Call<GenericPostResponse> call = apiRequest.addFcm(auth, updateFcm );
+        return performRequest(call);
+    }
+    public LiveData<ApiResponse<NotificationResponse>> getNotification(String auth) {
+        Call<NotificationResponse> call = apiRequest.getNotification(auth);
         return performRequest(call);
     }
     public LiveData<ApiResponse<MyOrdersResponse>> getMyOrders(String auth,String filterDate) {

@@ -12,9 +12,11 @@ import com.subh.shubhechhadelivery.Model.HomeResponse;
 import com.subh.shubhechhadelivery.Model.LoginRequest;
 import com.subh.shubhechhadelivery.Model.LoginResponse;
 import com.subh.shubhechhadelivery.Model.MyOrdersResponse;
+import com.subh.shubhechhadelivery.Model.NotificationResponse;
 import com.subh.shubhechhadelivery.Model.OrderDetails;
 import com.subh.shubhechhadelivery.Model.ProfileResponse;
 import com.subh.shubhechhadelivery.Model.RefundAmount;
+import com.subh.shubhechhadelivery.Model.UpdateFcm;
 import com.subh.shubhechhadelivery.Model.UpdateStatusModel;
 import com.subh.shubhechhadelivery.Repository.Repository;
 
@@ -49,6 +51,12 @@ public class ViewModel extends AndroidViewModel {
     }
     public LiveData<Repository.ApiResponse<GenericPostResponse>> updateStatus(String auth, UpdateStatusModel updateStatusModel) {
         return repository.updateStatus(auth, updateStatusModel);
+    }
+    public LiveData<Repository.ApiResponse<GenericPostResponse>> addFcm(String auth, UpdateFcm updateFcm) {
+        return repository.addFcm(auth, updateFcm);
+    }
+    public LiveData<Repository.ApiResponse<NotificationResponse>> getNotification(String auth) {
+        return repository.getNotification(auth);
     }
 
     public LiveData<Repository.ApiResponse<ProfileResponse>> profile(String auth) {
